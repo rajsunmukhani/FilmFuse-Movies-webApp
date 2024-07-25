@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+   margin : 0;
+   padding: 0;
+   box-sizing : border-box;
+   font-family : Gilroy;
+   --uib-color: #6556CD;
+}
+
+html,body{
+   height : 100%;
+   width : 100%;
+}
+
 ::-webkit-scrollbar{
     width: 8px;
+    height: 8px;
     overflow: hidden;
 }
 
@@ -14,5 +28,82 @@
 
 ::-webkit-scrollbar-thumb:hover{
     cursor: pointer;
-    background: #6556CD;
+    background: var(--uib-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newtons-cradle {
+    width: 200px;
+    height: 200px;
+}
+
+.newtons-cradle__dot {
+    height: 100%;
+    width: 25%;
+    transform-origin: center top;
+}
+
+.newtons-cradle__dot::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 25%;
+    border-radius: 50%;
+    background-color: var(--uib-color);
+}
+
+.newtons-cradle__dot:first-child {
+    animation: swing 1.2s linear infinite;
+}
+
+.newtons-cradle__dot:last-child {
+    animation: swing2 1.2s linear infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+    25% {
+        transform: rotate(70deg);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes swing2 {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+    }
+    50% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+    75% {
+        transform: rotate(-70deg);
+        animation-timing-function: ease-in;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .newtons-cradle {
+        --uib-size: 150px;
+    }
 }
