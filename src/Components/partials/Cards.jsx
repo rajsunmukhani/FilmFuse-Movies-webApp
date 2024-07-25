@@ -1,10 +1,8 @@
 import React from 'react'
 
 const Cards = ({data}) => {
-  console.log(data);
   return (
     <div className='w-full min-h-[50vh]'>
-      <h1 className='text-3xl mt-5 text-zinc-200 font-black'>Trending...</h1>
       <div className='w-[100%] h-[85%] gap-5 flex overflow-y-hidden overflow-x-auto mb-5'>
         {data.map((element,index) => (
           <div key={index} className='min-w-[17%] h-full bg-zinc-900 shadow-lg hover:scale-105 flex flex-col gap-2 mt-3 rounded overflow-hidden'>
@@ -14,7 +12,6 @@ const Cards = ({data}) => {
           </div>
         ))}
       </div>
-      
     </div>
   )
 }
