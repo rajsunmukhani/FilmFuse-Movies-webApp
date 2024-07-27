@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Components/Home.jsx'
-import Loading from './Components/Loading.jsx'
 import Trending from './Components/Trending.jsx'
+import Popular from './Components/Popular.jsx'
 
 const App = () => {
   return (
@@ -10,6 +10,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/trending' element={<Trending />} />
+        <Route path='/popular' element={<Popular />} />
       </Routes>
     </div>
   )
