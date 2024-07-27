@@ -38,7 +38,7 @@ const Header = ({ data }) => {
         <h1 className='text-zinc-500'>{data.media_type}</h1>
       </i>
       </div>
-      <Link className='bg-[#6556CD] w-fit p-3 py-2 rounded text-white font-semibold'>Watch Trailer</Link>
+      <Link className='bg-[#6556CD] w-fit p-3 py-2 rounded text-white hover:scale-105 font-semibold'>Watch Trailer</Link>
     </div>
   ) : (
     <h1>Loading...</h1>

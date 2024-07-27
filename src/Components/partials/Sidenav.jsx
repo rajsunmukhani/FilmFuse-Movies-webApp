@@ -13,7 +13,7 @@ const Sidenav = () => {
                 New Feeds
             </h2>          
             <nav className='flex flex-col text-zinc-400'>
-                <Link className='p-5 hover:bg-[#6556CD] hover:text-white duration-300 rounded-md'><i className="ri-fire-fill"></i> Trending</Link>
+                <Link to={'/trending'} className='p-5 hover:bg-[#6556CD] hover:text-white duration-300 rounded-md'><i className="ri-fire-fill"></i> Trending</Link>
                 <Link className='p-5 hover:bg-[#6556CD] hover:text-white duration-300 rounded-md'><i className="ri-bard-fill"></i> Popular</Link>
                 <Link className='p-5 hover:bg-[#6556CD] hover:text-white duration-300 rounded-md'><i className="ri-movie-2-fill"></i> Movies</Link>
                 <Link className='p-5 hover:bg-[#6556CD] hover:text-white duration-300 rounded-md'><i className="ri-tv-fill"></i> Tv Shows</Link>
