@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Topnav from './partials/Topnav'
-import Dropdown from './partials/Dropdown'
 import { useNavigate } from 'react-router-dom'
 import axios from '../utils/axios'
 import FullCards from './partials/FullCards'

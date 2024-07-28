@@ -3,7 +3,7 @@ import React from 'react'
 const Cards = ({data}) => {
   return (
     <div className='w-full min-h-[50vh]'>
-      <div className='w-[100%] h-[85%] gap-5 flex overflow-y-hidden overflow-x-auto mb-5'>
+      <div className='w-[100%] h-[85%] gap-5 flex overflow-y-hidden overflow-x-auto pb-5'>
         {data.map((element,index) => (
           <div key={index} className='min-w-[17%] h-full bg-zinc-900 shadow-lg hover:scale-105 flex flex-col gap-2 mt-3 rounded overflow-hidden'>
             <img className='h-1/2 w-full object-cover object-center' src={`https://image.tmdb.org/t/p/original/${element.backdrop_path || element.poster_path}`} alt="" />

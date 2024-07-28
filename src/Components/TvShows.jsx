@@ -65,7 +65,7 @@ const TvShows = () => {
           hasMore={hasMore}
           loader={<h1 className='text-white-200'>Loading..</h1>}
           >
-            <FullCards data={tv} title={category} />
+            <FullCards data={tv} />
           </InfiniteScroll>
       </div>
     ) : <Loading/>
