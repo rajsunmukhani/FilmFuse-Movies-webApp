@@ -11,7 +11,9 @@ const FullCards = ({data,title}) => {
                 className='w-[15vh] object-cover'
                 src={`https://image.tmdb.org/t/p/original/${
                     elem.poster_path ||
-                    elem.backdrop_path}`} alt="" />
+                    elem.backdrop_path ||
+                    elem.profile_path 
+                    }`} alt="" />
                     <h3 className='text-center text-l'>
                         {
                             elem.title || elem.name || elem.original_name || elem.original_title
