@@ -20,7 +20,7 @@ const Header = ({ data }) => {
       <h1 className='text-zinc-300 font-black text-3xl'>
         {data.title || data.name || data.original_name || data.original_title}
       </h1>
-      <p className='text-zinc-400 w-1/2 font-semibold'>
+      <p className='text-zinc-400 mobile:w-full w-1/2 font-semibold'>
         {showFullText ? data.overview : data.overview.slice(0, 200)}
         {data.overview.length > 200 && (
           <button onClick={toggleFullText} className='text-blue-400 ml-2'>

@@ -42,12 +42,12 @@ const Home = () => {
   return coverData && trending ? (
     <>
       <Sidenav />
-      <div className='w-[80%] min-h-full flex flex-col gap-3 px-5 overflow-y-auto'>
+      <div className='w-[80%] min-h-full mobile:w-full flex flex-col gap-3 overflow-y-auto'>
         <Topnav />
-        <Header data={coverData} />
-
-        <div className='flex items-center justify-between'>
-          <h1 className='text-3xl inline mt-5 text-zinc-200 font-black'>Trending...</h1>
+        <div className='px-5 mobile:py-24'>
+          <Header data={coverData} />
+          <div className='flex items-center justify-between'>
+          <h1 className='text-3xl mobile:text-xl mobile:font-normal inline text-zinc-200 font-black'>Trending...</h1>
           <Dropdown
           title="filter" 
           options={['all','movie','tv']}
@@ -55,6 +55,9 @@ const Home = () => {
            />
         </div>
         <Cards data={trending}/>
+        </div>
+
+        
       </div>
     </>
   ) : <Loading />
