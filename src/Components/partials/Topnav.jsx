@@ -1,6 +1,6 @@
 import axios from '../../utils/axios';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import noimage from '/no-image.png'
 
 const Topnav = () => {
@@ -16,6 +16,11 @@ const Topnav = () => {
     }
   }
 
+  const navigate = useNavigate();
+  const iconNavigate = () => {
+    navigate('/')
+  }
+
 
   useEffect(() => {
     getSearch();
@@ -23,10 +28,10 @@ const Topnav = () => {
 
   return (
     <div className='w-[100%]'>
-        <div className='h-20 mobile:border-b mobile:px-5 mobile:bg-zinc-800 mobile:z-[999] mobile:shadow-2xl mobile:fixed relative flex items-center mobile:w-full justify-center mobile:justify-between gap-5'>
-            <i className="text-[#6556CD] hidden mobile:block text-3xl ri-tv-fill"></i>
+        <div className='h-20 mobile:px-5 mobile:z-[999]  mobile:fixed relative flex items-center mobile:w-full justify-center mobile:justify-between gap-5'>
+            <i onClick={iconNavigate} className="text-[#6556CD] hidden mobile:block text-3xl ri-tv-fill"></i>
             <i className='ri-search-line mobile:hidden text-zinc-500 text-zinc-100 text-2xl '></i>
-            <input onChange={(e) => setSearch(e.target.value)} value={search} className='w-[80%] p-4 rounded-3xl bg-transparent border-b outline-none text-zinc-200' placeholder='Search Here...' type="text" />
+            <input onChange={(e) => setSearch(e.target.value)} value={search} className='w-[80%] shadow:2xl bg-zinc-800 p-4 rounded-3xl bg-transparent border-b outline-none text-zinc-200' placeholder='Search Here...' type="text" />
             <button className='w-6' onClick={() => setSearch("")}><i className={search.length > 0 ? 'ri-close-fill text-zinc-500 text-2xl' : ''}></i></button>
             <div className='absolute bg-zinc-700 rounded-xl w-[80%] top-[90%] max-h-[40vh] overflow-auto'>
               {searchResults.map((result,index) => {

@@ -6,6 +6,7 @@ import Dropdown from './partials/Dropdown';
 import FullCards from './partials/FullCards';
 import axios from '../utils/axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Sidenav from './partials/Sidenav';
 
 const Popular = () => {
     const [category, setcategory] = useState('movie');
@@ -45,14 +46,14 @@ const Popular = () => {
       
 
       return popular.length > 0 ? (
-        <div className='text-zinc-100 w-full h-fit px-8 bg-[#1F1E24]'>
-            <div className='flex w-full items-center'>
-                <div className='flex gap-2 item-center'>
+        <div className='text-zinc-100 w-full h-fit mobile:px-0 px-8 bg-[#1F1E24]'>
+           <div className='flex w-full items-center mobile:h-24 mobile:block mobile:items-start'>
+                <div className='flex mobile:hidden gap-2 item-center'>
                     <i onClick={navigateBack} className="ri-arrow-left-line hover:text-[#6556CD] text-xl"></i>
                     <h3 className='text-xl'>Popular</h3>
                 </div>
                 <Topnav />
-                <div className='gap-2 flex items-center'>
+                <div className='gap-2 flex items-center mobile:hidden'> 
                 <Dropdown title='filter' options={['movie','tv']} changeCategory={(e) => setcategory(e.target.value)} />
                 </div>
             </div>
@@ -64,6 +65,9 @@ const Popular = () => {
             >
               <FullCards data={popular} />
             </InfiniteScroll>
+            <div className='w-full h-8vh hidden mobile:block'>
+              <Sidenav />
+            </div>
         </div>
       ) : <Loading />
 }

@@ -46,8 +46,8 @@ const Home = () => {
         <Topnav />
         <div className='px-5 mobile:py-24'>
           <Header data={coverData} />
-          <div className='flex items-center justify-between'>
-          <h1 className='text-3xl mobile:text-xl mobile:font-normal inline text-zinc-200 font-black'>Trending...</h1>
+          <div className='flex items-center justify-between w-full h-[8vh]'>
+          <h1 className='text-3xl mobile:text-xl mobile:font-normal inline mobile:w-[50%] text-zinc-200 font-black'>Trending...</h1>
           <Dropdown
           title="filter" 
           options={['all','movie','tv']}
