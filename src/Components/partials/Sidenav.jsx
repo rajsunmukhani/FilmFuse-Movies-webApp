@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const Sidenav = () => {
   return (
     <div className='w-[20%]
+    mobile:z-[999]
     mobile:bg-zinc-800 mobile:fixed mobile:bottom-0 mobile:h-[8vh] mobile:flex mobile:w-full
      h-full p-5 border-r border-zinc-400 mobile:p-0'
     >
