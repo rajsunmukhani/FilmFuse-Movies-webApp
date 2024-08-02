@@ -54,7 +54,7 @@ const Popular = () => {
                 </div>
                 <Topnav />
                 <div className='gap-2 flex items-center mobile:hidden'> 
-                <Dropdown title='filter' options={['movie','tv']} changeCategory={(e) => setcategory(e.target.value)} />
+                <Dropdown title={category} options={['movie','tv']} changeCategory={(e) => setcategory(e.target.value)} />
                 </div>
             </div>
             <InfiniteScroll
@@ -63,7 +63,7 @@ const Popular = () => {
             hasMore={hasMore}
             loader={<h1 className='text-white-200'>Loading..</h1>}
             >
-              <FullCards data={popular} />
+              <FullCards data={popular} title={category} />
             </InfiniteScroll>
             <div className='w-full h-8vh hidden mobile:block'>
               <Sidenav />

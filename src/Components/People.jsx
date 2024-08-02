@@ -60,7 +60,7 @@ const People = () => {
           hasMore={hasMore}
           loader={<h1 className='text-white-200'>Loading..</h1>}
           >
-            <FullCards data={people} />
+            <FullCards data={people} title='person' />
           </InfiniteScroll>
           <div className='w-full h-8vh hidden mobile:block'>
               <Sidenav />

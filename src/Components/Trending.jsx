@@ -57,8 +57,8 @@ const Trending = () => {
             </div>
             <Topnav />
             <div className='gap-2 flex items-center mobile:hidden'>
-                <Dropdown title='duration' options={['day','week']} changeCategory={(e) => setduration(e.target.value)} />
-                <Dropdown title='filter' options={['all','movie','tv']} changeCategory={(e) => setcategory(e.target.value)} />
+                <Dropdown title={duration} options={['day','week']} changeCategory={(e) => setduration(e.target.value)} />
+                <Dropdown title={category} options={['all','movie','tv']} changeCategory={(e) => setcategory(e.target.value)} />
             </div>
         </div>
         <InfiniteScroll
@@ -67,7 +67,7 @@ const Trending = () => {
         hasMore={hasMore}
         loader={<h1 className='text-white-200'>Loading..</h1>}
         >
-          <FullCards data={trending} />
+          <FullCards data={trending} title={category} />
         </InfiniteScroll>
         <div className='w-full h-8vh hidden mobile:block'>
               <Sidenav />

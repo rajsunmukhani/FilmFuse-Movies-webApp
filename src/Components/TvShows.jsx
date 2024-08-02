@@ -57,7 +57,7 @@ const TvShows = () => {
               </div>
               <Topnav />
               <div className='gap-2 flex mobile:hidden items-center'>
-                  <Dropdown title='filter' options={['popular','top_rated','on_the_air','airing_today']} changeCategory={(e) => setcategory(e.target.value)} />
+                  <Dropdown title={category} options={['popular','top_rated','on_the_air','airing_today']} changeCategory={(e) => setcategory(e.target.value)} />
               </div>
           </div>
           <InfiniteScroll
@@ -66,7 +66,7 @@ const TvShows = () => {
           hasMore={hasMore}
           loader={<h1 className='text-white-200'>Loading..</h1>}
           >
-            <FullCards data={tv} />
+            <FullCards data={tv} title='tv' />
           </InfiniteScroll>
           <div className='w-full h-8vh hidden mobile:block'>
               <Sidenav />
