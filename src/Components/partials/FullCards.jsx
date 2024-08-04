@@ -22,8 +22,8 @@ const FullCards = ({data , title}) => {
                     </h3>
                         {elem.vote_average > 0 && (
                             <div className='flex px-2 items-center w-full gap-1'>
-                               Viewers' Ratings : <h1 className={elem.vote_average > 6.5 ? 'text-green-500' : 'text-red-500'} >{(elem.vote_average *10).toFixed()}</h1> 
-                                <sup className={elem.vote_average > 6.5 ? 'text-green-500' : 'text-red-500'}>%</sup>
+                               Viewers' Ratings : <h1 className={elem.vote_average >= 6 ? 'text-green-500' : 'text-red-500'} >{(elem.vote_average *10).toFixed()}</h1> 
+                                <sup className={elem.vote_average >= 6 ? 'text-green-500' : 'text-red-500'}>%</sup>
                             </div>)}
             </Link>
         ))}
