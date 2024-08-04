@@ -48,39 +48,39 @@ const MovieDetails = () => {
       </div>
 
      {info.watchProviders != undefined && (
-        <footer className='flex justify-between w-full px-16'>
+        <footer className='flex justify-evenly w-full px-16'>
               { 
-                info.watchProviders.buy &&
-                info.watchProviders.buy.map((provider) => {
-                  return (
+                info.watchProviders.buy && (
                   <div className='flex gap-5'>
-                  <h4 className='text-zinc-200 text-xl'>Buy on:</h4>
-                    <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
-                  </div>
-                  )
-                })
+                    <h4 className='text-zinc-200 text-xl'>Buy on:</h4>
+                    {info.watchProviders.buy.map((provider) => {
+                        return (
+                          <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
+                        )
+                    })}
+                  </div>)
               }
           {
             info.watchProviders.flatrate &&
-            info.watchProviders.flatrate.map((provider) => {
-                return (
                   <div className='flex gap-5'>
                     <h4 className='text-zinc-200 text-xl'>Available on :</h4>
+            {info.watchProviders.flatrate.map((provider) => {
+                return (
                     <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
-                  </div>
-                )
-              })
+                  )
+                })}
+                 </div>
             }
               {
                 info.watchProviders.rent &&
-                info.watchProviders.rent.map((provider) => {
-                  return (
                     <div className='flex gap-5'>
                       <h4 className='text-zinc-200 text-xl'>Get it on Rent :</h4>
+                {info.watchProviders.rent.map((provider) => {
+                  return (
                       <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
-                    </div>
                     )
-                  })
+                  })}
+                  </div>
                 }
         </footer>
       )}
