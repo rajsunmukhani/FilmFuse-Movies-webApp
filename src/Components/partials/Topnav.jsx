@@ -33,7 +33,7 @@ const Topnav = () => {
             <i className='ri-search-line mobile:hidden text-zinc-500 text-zinc-100 text-2xl '></i>
             <input onChange={(e) => setSearch(e.target.value)} value={search} className='w-[80%] shadow:2xl bg-zinc-800 p-4 rounded-3xl bg-transparent border-b outline-none text-zinc-200' placeholder='Search Here...' type="text" />
             <button className='w-6' onClick={() => setSearch("")}><i className={search.length > 0 ? 'ri-close-fill text-zinc-500 text-2xl' : ''}></i></button>
-            <div className='absolute bg-zinc-700 rounded-xl w-[80%] top-[90%] max-h-[40vh] overflow-auto'>
+            <div className='absolute bg-zinc-700 rounded-xl z-[999] w-[80%] top-[90%] max-h-[40vh] overflow-auto'>
               {searchResults.map((result,index) => {
                 return(
                   <Link to={`/${result.media_type}/details/${result.id}`} key={index} className='flex gap-2 items-center p-5 hover:bg-[#6556CD] duration-500'>
