@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { asyncLoadMovie, removeMovie } from '../Store/actions/MovieActions'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from './Loading'
 import Cards from './partials/Cards';
@@ -24,7 +24,7 @@ const MovieDetails = () => {
     }
   },[id])
   return info ? (
-    <div style={{background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path})`,backgroundSize: 'cover',backgroundPosition: 'top'}} className='w-full min-h-[160vh]'>
+    <div style={{background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path})`,backgroundSize: 'cover',backgroundPosition: 'top'}} className='w-full overflow-hidden relative min-h-[160vh]'>
 
       <nav className='w-1/2 p-8 flex items-center justify-evenly font-bold text-xl text-zinc-100'>
         <i onClick={navigateBack} className="ri-arrow-left-line cursor-pointer text-xl"></i>
@@ -33,7 +33,7 @@ const MovieDetails = () => {
         <a href={`https://www.imdb.com/title/${info.externalids.imdb_id}/`}>imdb</a>
       </nav>
       
-      <div className="content flex items-center h-[80vh] text-zinc-200 pt-5">
+      <div className="content flex items-center h-[83vh] text-zinc-200 pt-5">
         <div className="content-left w-1/2 h-full flex justify-center items-center">
           <img src={`https://image.tmdb.org/t/p/original/${
             info.details.poster_path ||
@@ -82,7 +82,7 @@ const MovieDetails = () => {
             </h4>
           )}
 
-            <Link className='bg-[#6556CD] p-3 rounded text-white hover:scale-105 w-fit font-black'>
+            <Link to={`/movie/details/${id}/trailer`} className='bg-[#6556CD] p-3 rounded text-white hover:scale-105 w-fit font-black'>
             Watch Trailer
             </Link>
             
@@ -128,9 +128,11 @@ const MovieDetails = () => {
       )}
 
       <div className='px-16 mt-5 py-5 text-2xl font-black text-white'>
-        <h1>Recommendations & Similars : </h1>
+        <h1 className='mb-5'>Recommendations & Similars : </h1>
         <Cards data={info.recommendations || info.similar}/>
       </div>
+
+      <Outlet />
 
      </div>
   ) : <Loading />

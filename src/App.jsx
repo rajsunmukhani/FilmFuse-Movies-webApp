@@ -9,6 +9,7 @@ import People from './Components/People.jsx'
 import MovieDetails from './Components/MovieDetails.jsx'
 import TvDetails from './Components/TvDetails.jsx'
 import PersonDetails from './Components/PersonDetails.jsx'
+import VideoPlayer from './Components/partials/VideoPlayer.jsx'
 
 const App = () => {
   return (
@@ -22,7 +23,9 @@ const App = () => {
         <Route path='/people' element={<People />} />
         <Route path='/person/details/:id' element={<PersonDetails />} />  
         <Route path='/tv/details/:id' element={<TvDetails />} />  
-        <Route path='/movie/details/:id' element={<MovieDetails />} />  
+        <Route path='/movie/details/:id' element={<MovieDetails />} >
+          <Route path='/movie/details/:id/trailer'element={<VideoPlayer />} />
+        </Route>  
       </Routes>
     </div>
   )
