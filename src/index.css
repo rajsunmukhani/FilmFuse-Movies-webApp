@@ -159,3 +159,70 @@ select::-ms-expand {
 .select:hover::after {
     color: #6556cd;
 }
+
+@media only screen and (max-width: 768px) {
+    .movieDetails::-webkit-scrollbar {
+      display: none;
+    }
+  
+    /* For Firefox */
+    .movieDetails {
+      scrollbar-width: none; /* Firefox */
+    }
+  
+    /* For Internet Explorer, Edge */
+    .movieDetails {
+      -ms-overflow-style: none;  /* IE and Edge */
+    }
+  }
+
+  /* Custom CSS */
+
+  /* @function multiple-shadow($length) {
+    $value: 2px -1px 0 #000;
+    @for $i from 2 through $length {
+      $ho: $i * 2;
+      $vo: -#{$ho / 2};
+      $col: hsl(0deg, 0%, $i * 2%);
+      $value: #{$value}, #{$ho}px #{$vo}px 0 $col;
+    }
+    @return $value;
+  } */
+
+.number {
+  text-shadow: multiple-shadow(8);
+}
+
+.number::before,
+.number::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #673ab7;
+  background-image: radial-gradient(
+      closest-side at 50% 50%,
+      #ffc107 100%,
+      rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(closest-side at 50% 50%, #e91e63 100%, rgba(0, 0, 0, 0));
+  background-repeat: repeat-x;
+  background-size: 40vmin 40vmin;
+  background-position: -100vmin 20vmin, 100vmin -25vmin;
+  mix-blend-mode: screen;
+  animation: moving 10s linear infinite both;
+}
+
+@keyframes moving {
+  to {
+    background-position: 100vmin 20vmin, -100vmin -25vmin;
+  }
+}
+
+.text {
+  font-family: 'Courgette', cursive;
+}
+
+  

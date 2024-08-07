@@ -10,6 +10,7 @@ import MovieDetails from './Components/MovieDetails.jsx'
 import TvDetails from './Components/TvDetails.jsx'
 import PersonDetails from './Components/PersonDetails.jsx'
 import VideoPlayer from './Components/partials/VideoPlayer.jsx'
+import NotFoundPage from './Components/partials/NotFoundPage.jsx'
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
         <Route path='/tv/details/:id' element={<TvDetails />} />  
         <Route path='/movie/details/:id' element={<MovieDetails />} >
           <Route path='/movie/details/:id/trailer'element={<VideoPlayer />} />
-        </Route>  
+        </Route>
+        <Route path={'*'} element={<NotFoundPage />}></Route>  
       </Routes>
     </div>
   )
