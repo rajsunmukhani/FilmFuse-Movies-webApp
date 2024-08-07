@@ -40,7 +40,7 @@ const Header = ({ data }) => {
         </i>
         </div>
         <div className='flex gap-5'>
-        <Link className='bg-[#6556CD] w-fit p-3 py-2 rounded text-white hover:scale-105 font-semibold'>Watch Trailer</Link>
+        <Link to={`/${data.media_type}/details/${data.id}/trailer`} className='bg-[#6556CD] w-fit p-3 py-2 rounded text-white hover:scale-105 font-semibold'>Watch Trailer</Link>
         <Link to={`/${data.media_type}/details/${data.id}`} className='bg-[#FFF] text-[#6556CD] w-fit p-3 py-2 rounded hover:scale-105 font-semibold'>Know More</Link>
         </div>
       </div>

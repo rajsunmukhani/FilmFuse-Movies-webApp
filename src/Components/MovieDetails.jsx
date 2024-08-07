@@ -91,7 +91,7 @@ const MovieDetails = () => {
         <footer className='flex min-h-[30vh] mobile:min-h-[10vh] mt-64 justify-evenly mobile:flex-col whitespace-wrap w-full mobile:px-3 px-16'>
               { 
                 info.watchProviders.buy && (
-                  <div className='flex gap-5 w-full items-center bg-red-200'>
+                  <div className='flex gap-5 w-full items-center'>
                     <h4 className='text-zinc-200 text-xl'>Buy on:</h4>
                     {info.watchProviders.buy.map((provider) => {
                         return (

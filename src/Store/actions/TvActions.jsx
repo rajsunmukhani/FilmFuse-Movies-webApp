@@ -1,15 +1,15 @@
-export {removeMovie} from '../reducers/MovieSlice'
+export {removeTv} from '../reducers/TvSlice'
 import axios from '../../utils/axios'
-import {loadMovie} from '../reducers/MovieSlice'
+import {loadTv} from '../reducers/TvSlice'
 
-export const asyncLoadMovie = (id) => async(dispatch,getState) => {
+export const asyncLoadTv = (id) => async(dispatch,getState) => {
     try {
-    const details = await axios.get(`/movie/${id}`);
-    const externalids = await axios.get(`/movie/${id}/external_ids`);
-    const recommendations = await axios.get(`/movie/${id}/recommendations`);
-    const similar = await axios.get(`/movie/${id}/similar`);
-    const videos = await axios.get(`/movie/${id}/videos`);
-    const watchProviders = await axios.get(`/movie/${id}/watch/providers`);
+    const details = await axios.get(`/tv/${id}`);
+    const externalids = await axios.get(`/tv/${id}/external_ids`);
+    const recommendations = await axios.get(`/tv/${id}/recommendations`);
+    const similar = await axios.get(`/tv/${id}/similar`);
+    const videos = await axios.get(`/tv/${id}/videos`);
+    const watchProviders = await axios.get(`/tv/${id}/watch/providers`);
 
     const theData = {
         details: details.data,
@@ -19,7 +19,7 @@ export const asyncLoadMovie = (id) => async(dispatch,getState) => {
         videos: videos.data.results.find(vid => vid.type === 'Trailer'),
         watchProviders: watchProviders.data.results.IN
     }
-    dispatch(loadMovie(theData));
+    dispatch(loadTv(theData));
     } catch (error) {
         console.log('Error : ' , error);        
     }   
