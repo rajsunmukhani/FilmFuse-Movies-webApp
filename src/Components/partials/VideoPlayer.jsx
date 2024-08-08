@@ -27,7 +27,7 @@ const VideoPlayer = () => {
     <div className="absolute h-[100vh] w-full top-0 bg-[rgba(0,0,0,0.8)] flex items-center justify-center">
       <i onClick={navigateBack} className="ri-close-large-line top-[5%] text-zinc-200 right-[5%] absolute cursor-pointer z-[999] text-xl"></i>
         <div className="w-[100vw] h-[100vh] mobile:h-[50vh] mobile:w-[80vw]">
-          <ReactPlayer onPlay={{height : "100%" , width : "100%"}} height="100%" width="100%" url={`https://www.youtube.com/watch?v=${video.key}`} />
+          <ReactPlayer height="100%" width="100%" url={`https://www.youtube.com/watch?v=${video.key}`} />
         </div>
     </div>
   )
