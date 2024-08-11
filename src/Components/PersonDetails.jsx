@@ -7,11 +7,7 @@ import Loading from './Loading'
 const PersonDetails = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
-  const {info} = useSelector(state => state.person);
-
-  console.log(info);
-  
-  
+  const {info} = useSelector(state => state.person);  
 
   const navigate = useNavigate()
 
