@@ -85,50 +85,48 @@ const MovieDetails = () => {
             </Link>
             
         </div>
+         {info.watchProviders != undefined && (
+           <footer className='flex min-h-[30vh] mobile:min-h-[20vh] mt-10 gap-5 justify-evenly mobile:flex-col whitespace-wrap w-full mobile:px-3 px-16'>
+           { 
+             info.watchProviders.buy && (
+               <div className='flex gap-5 w-full items-center'>
+                 <h4 className='text-zinc-200 text-xl'>Buy on:</h4>
+                 {info.watchProviders.buy.map((provider) => (
+                   <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
+                 ))}
+               </div>
+             )
+           }
+           {
+             info.watchProviders.flatrate && (
+               <div className='flex gap-5 items-center'>
+                 <h4 className='text-zinc-200 text-xl'>Available on :</h4>
+                 {info.watchProviders.flatrate.map((provider) => (
+                   <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
+                 ))}
+               </div>
+             )
+           }
+           {
+             info.watchProviders.rent && (
+               <div className='flex gap-5 items-center'>
+                 <h4 className='text-zinc-200 text-xl'>Get it on Rent :</h4>
+                 {info.watchProviders.rent.map((provider) => (
+                   <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
+                 ))}
+               </div>
+             )
+           }
+         </footer>
+         
+          )}
+
+          <div className='px-16 py-5 text-2xl font-black text-white'>
+            <h1 className='mb-5'>Recommendations & Similars : </h1>
+            <Cards data={info.recommendations || info.similar}/>
+          </div>
       </div>
 
-     {info.watchProviders != undefined && (
-        <footer className='flex min-h-[30vh] mobile:min-h-[10vh] mt-64 justify-evenly mobile:flex-col whitespace-wrap w-full mobile:px-3 px-16'>
-              { 
-                info.watchProviders.buy && (
-                  <div className='flex gap-5 w-full items-center'>
-                    <h4 className='text-zinc-200 text-xl'>Buy on:</h4>
-                    {info.watchProviders.buy.map((provider) => {
-                        return (
-                          <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
-                        )
-                    })}
-                  </div>)
-              }
-          {
-            info.watchProviders.flatrate &&
-                  <div className='flex gap-5 items-center'>
-                    <h4 className='text-zinc-200 text-xl'>Available on :</h4>
-            {info.watchProviders.flatrate.map((provider) => {
-                return (
-                    <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
-                  )
-                })}
-                 </div>
-            }
-              {
-                info.watchProviders.rent &&
-                    <div className='flex gap-5 items-center'>
-                      <h4 className='text-zinc-200 text-xl'>Get it on Rent :</h4>
-                {info.watchProviders.rent.map((provider) => {
-                  return (
-                      <img key={provider.provider_id} className='h-8 w-8 rounded-full object-cover' src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`} alt="" />
-                    )
-                  })}
-                  </div>
-                }
-        </footer>
-      )}
-
-      <div className='px-16 mobile:mt-40 py-5 text-2xl font-black text-white'>
-        <h1 className='mb-5'>Recommendations & Similars : </h1>
-        <Cards data={info.recommendations || info.similar}/>
-      </div>
 
       <Outlet />
 
